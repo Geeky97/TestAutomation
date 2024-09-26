@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="33.883" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="F01_Registration | guest use could create new accounts" name="user could create new account with valid data" time="33.414">
+<system-out><![CDATA[
+Given User is on home page..................................................passed
+Then User go to register page...............................................passed
+When User enter name & email................................................passed
+And Click sign up button....................................................passed
+Then User should see ENTER ACCOUNT INFORMATION visible......................passed
+When User select title......................................................passed
+And User fills account information with name, email, password, and DOB......passed
+And User selects Sign up for our newsletter! checkbox.......................passed
+And User selects Receive special offers from our partners! checkbox.........passed
+And User fills personal details First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number.passed
+And User clicks Create Account button.......................................passed
+Then ACCOUNT CREATED! should be visible.....................................passed
+When User clicks Continue button............................................passed
+Then Logged in as username should be visible................................passed
+When User clicks Delete Account button......................................passed
+Then ACCOUNT DELETED! should be visible.....................................passed
+And User clicks Continue button.............................................passed
+]]></system-out>
+</testcase>
+</testsuite>
