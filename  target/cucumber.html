@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="63.342" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="F01_Registration | guest use could create new accounts" name="user could create new account with valid data" time="62.687">
+<testsuite name="Cucumber" time="85.039" tests="3" skipped="0" failures="0" errors="0">
+<testcase classname="F01_Registration | guest use could create new accounts" name="user could create new account with valid data" time="41.496">
 <system-out><![CDATA[
 Given User is on home page..................................................passed
 Then User go to register page...............................................passed
@@ -19,6 +19,26 @@ Then Logged in as username should be visible................................pass
 When User clicks Delete Account button......................................passed
 Then ACCOUNT DELETED! should be visible.....................................passed
 And User clicks Continue button.............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="F02_Login |  Login functionality on AutomationExercise" name="Login User with correct email and password" time="24.682">
+<system-out><![CDATA[
+Given User is on the home page..............................................passed
+When The user clicks on the Signup_Login button.............................passed
+Then The Login to your account page should be_visible.......................passed
+When User enter valid email address & password..............................passed
+And The user clicks the login button........................................passed
+Then User should be visible Logged in as username...........................passed
+]]></system-out>
+</testcase>
+<testcase classname="F02_Login |  Login functionality on AutomationExercise" name="Login user with incorrect email and password" time="18.272">
+<system-out><![CDATA[
+Given User is on the home page..............................................passed
+When The user clicks on the Signup_Login button.............................passed
+Then The Login to your account page should be_visible.......................passed
+When User enters incorrect email address & password.........................passed
+And The user clicks the login button........................................passed
+Then Verify error Your email or password is incorrect! is visible...........passed
 ]]></system-out>
 </testcase>
 </testsuite>

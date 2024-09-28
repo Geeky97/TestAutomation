@@ -13,12 +13,13 @@ public class P01_register {
 
     public P01_register ()
     {
-    PageFactory.initElements(Hooks.driver , this);
+        PageFactory.initElements(Hooks.driver , this);
     }
 
     @FindBy(xpath = "//a[@href=\"/login\"]")
     public WebElement loginButton;
 
+    // Home page visibility
     @FindBy(xpath ="//img[@src='/static/images/home/logo.png']")
     public WebElement homePageIsVisible;
 
@@ -27,6 +28,7 @@ public class P01_register {
     public WebElement nameField;
     @FindBy(xpath = "//input[@data-qa=\"signup-email\"]")
     public WebElement emailField;
+    // Signup/Login button
     @FindBy(xpath = "//button[@data-qa=\"signup-button\"]")
     public WebElement signupButton;
 
@@ -98,6 +100,12 @@ public class P01_register {
     @FindBy(xpath ="//b[contains(text(),'Account Deleted!')]" )
     public WebElement accountDeletedText;
 
+    // 'New User Signup!' text
+    @FindBy(xpath = "//h2[contains(text(), 'New User Signup!')]")
+    public WebElement NewUserSignup;
+
+    @FindBy(xpath = "//p[contains(text(),'Email Address already exist!')]")
+    public WebElement emailExistsErrorMessage;
 
 
 

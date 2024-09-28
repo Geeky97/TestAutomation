@@ -1,7 +1,7 @@
-@test
+@test2
 Feature: F01_Registration | guest use could create new accounts
 
-  #positive scenario
+
   Scenario: user could create new account with valid data
 
     Given User is on home page
@@ -21,3 +21,13 @@ Feature: F01_Registration | guest use could create new accounts
     When User clicks Delete Account button
     Then ACCOUNT DELETED! should be visible
     And User clicks Continue button
+
+
+  Scenario: Signup with already registered email address
+
+    Given User is on the home page
+    When The user clicks on the Signup_Login button
+    Then The New User Signup page should be visible
+    When User enters name and already registered email address
+    And The user clicks the Signup button
+    Then Verify error Email Address already exist! is visible

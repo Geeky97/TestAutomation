@@ -16,6 +16,8 @@ import org.openqa.selenium.support.Color;
 public class D01_RegStepDefs {
     P01_register register = new P01_register();
     private String generatedName;
+    private String name = "Sayed Khaledhh";
+    private String registeredEmail = "sayedkhaledhhns@yahoo.com";
 
 
 
@@ -168,6 +170,30 @@ public class D01_RegStepDefs {
         soft.assertAll();
     }
 
+    @Then("The New User Signup page should be visible")
+    public void theNewUserSignupPageShouldBeVisible() {
+        register.NewUserSignup.isDisplayed();
+    }
+
+    @When("User enters name and already registered email address")
+    public void userEntersNameAndAlreadyRegisteredEmailAddress() {
+        register.nameField.sendKeys(name);
+        register.emailField.sendKeys(registeredEmail);
+    }
+
+    @And("The user clicks the Signup button")
+    public void theUserClicksTheSignupButton() {
+        register.signupButton.click();
+    }
+
+    @Then("Verify error Email Address already exist! is visible")
+    public void verifyErrorEmailAddressAlreadyExistIsVisible() {
+        String errorMessage = register.emailExistsErrorMessage.getText();
+        SoftAssert soft = new SoftAssert();
+        soft.assertTrue(errorMessage.contains("Email Address already exist!"),
+                "Expected error message not found. Actual message: " + errorMessage);
+        soft.assertAll();
+    }
 }
 
 
