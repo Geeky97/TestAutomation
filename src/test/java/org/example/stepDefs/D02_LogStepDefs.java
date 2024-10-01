@@ -12,7 +12,7 @@ import org.testng.asserts.SoftAssert;
 public class D02_LogStepDefs {
     P02_login login = new P02_login();
     //valid credentials
-    private String validemail = "sayedkhaledhhns@yahoo.com";
+    public String validemail = "sayedkhaledhhns@yahoo.com";
     private String validpassword = "1541997";
     private String name = "Sayed Khaledhh";
 

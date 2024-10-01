@@ -32,6 +32,7 @@ public class D03_ContactStepDefs {
     public void verifySuccessMessageIsDisplayed() {
         softAssert.assertTrue(contactus.verifySubmissionSuccess(), "Success message is not visible");
         softAssert.assertAll();
+
     }
 
     @And("User returns to home page")
