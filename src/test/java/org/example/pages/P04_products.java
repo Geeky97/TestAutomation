@@ -36,17 +36,47 @@ public class P04_products {
     @FindBy(xpath = "//span[contains(text(), 'Rs. ')]")
     public WebElement productPrice;
 
-    @FindBy(xpath = "//b[contains(text(),'Availability')]")
+    @FindBy(xpath = "//p[contains(., 'Availability')]")
     public WebElement productAvailability;
 
-    @FindBy(xpath = "//b[contains(text(),'Condition')]")
+    @FindBy(xpath = "//p[contains(., 'Condition')]")
     public WebElement productCondition;
 
-    @FindBy(xpath = "//b[contains(text(),'Brand')]")
+    @FindBy(xpath = "//p[b[text()='Brand:']]")
     public WebElement productBrand;
 
     @FindBy(id = "quantity")
     public WebElement productQuantity;
+
+    @FindBy(id="search_product")
+    public WebElement productSearch;
+
+    @FindBy(id="submit_search")
+    public WebElement searchButton;
+
+    @FindBy(xpath = "//h2[@class=\"title text-center\"]")
+    public WebElement textProductSearched;
+
+    @FindBy(xpath = "//a[@href=\"/product_details/13\"]")
+    public WebElement productDetails;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -63,12 +93,12 @@ public class P04_products {
         return productsList.isDisplayed();
     }
 
-    public void clickOnViewFirstProduct(){
+    public void clickOnViewFirstProduct() {
         viewFirstProductButton.click();
     }
 
-    public boolean isProductDetailVisible(){
-        return  productName.isDisplayed() &&
+    public boolean isProductDetailVisible() {
+        return productName.isDisplayed() &&
                 productCategory.isDisplayed() &&
                 productPrice.isDisplayed() &&
                 productAvailability.isDisplayed() &&
@@ -77,41 +107,57 @@ public class P04_products {
 
     }
 
-    public String getProductName(){
+    public String getProductName() {
         return productName.getText();
     }
 
-    public int getProductPrice() {
-        // Remove "Rs. " from the price string and trim any extra spaces
-        String priceText = productPrice.getText().replaceAll("[^\\d]", ""); // This keeps only digits
-        return Integer.parseInt(priceText); // Convert the cleaned string to an integer
+    public String getProductAvailability() {
+        return productAvailability.getText();
     }
 
-        public String getProductAvailability(){
-            return productName.getText();
-        }
-
-    public String getProductCondition(){
-        return productCondition.getText();
+    public String getProductCondition() {
+        return productCondition.getText().trim();
     }
 
-    public String getProductBrand(){
-        return productBrand.getText();
+    public String getProductBrand() {
+        return productBrand.getText().trim();
     }
 
-    public String getProductCategory(){
+    public String getProductCategory () {
         return productCategory.getText();
     }
 
     public int getProductQuantity() {
         String quantityValue = productQuantity.getAttribute("value");
         return Integer.parseInt(quantityValue);
+        }
 
+    public int getProductPrice() {
+            // Get the product price as text (e.g., "Rs. 500")
+            String priceText = productPrice.getText().replaceAll("[^0-9]", ""); // Removes non-numeric characters
+            return Integer.parseInt(priceText); // Converts the numeric part to an integer
+        }
+
+    public void Clicksearchproduct() {
+        productSearch.click();
+        productSearch.sendKeys("kids");
+        searchButton.click();
 
     }
 
+    public boolean textProductSearchedisVisible (){
+        return textProductSearched.isDisplayed();
+
+    }
+
+    public boolean productDetailsVisible() {
+        return productDetails.isDisplayed();
+    }
 
 }
+
+
+
 
 
 

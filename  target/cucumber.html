@@ -1,24 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="31.995" tests="1" skipped="0" failures="1" errors="0">
-<testcase classname="Verify All Products and Product Detail Page" name="Verify All Products and Product Detail Page functionality" time="31.441">
-<failure type="java.lang.NumberFormatException" message="For input string: &quot;Rs. 500&quot;">
-<![CDATA[java.lang.NumberFormatException: For input string: "Rs. 500"
-	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
-	at java.base/java.lang.Integer.parseInt(Integer.java:668)
-	at java.base/java.lang.Integer.parseInt(Integer.java:786)
-	at org.example.pages.P04_products.getProductPrice(P04_products.java:105)
-	at org.example.stepDefs.D04_ProdStepDefs.userVerifiesProductDetails(D04_ProdStepDefs.java:47)
-	at org.example.stepDefs.D04_ProdStepDefs.productDetailPageIsDisplayedWithAllProductDetails(D04_ProdStepDefs.java:41)
-	at ✽.Product detail page is displayed with all product details(file:///E:/automatiom_exercise/src/main/resources/features/F04_products.feature:10)
-]]>
-</failure>
+<testsuite name="Cucumber" time="115.676" tests="4" skipped="0" failures="0" errors="0">
+<testcase classname="Verify All Products and Product Detail Page functionality" name="User views details of a selected product" time="33.216">
 <system-out><![CDATA[
 Given User is on the home page..............................................passed
 When User clicks 'Products'.................................................passed
 Then ALL PRODUCTS page is displayed.........................................passed
 And The products list is visible............................................passed
 When User clicks View Product for the first item............................passed
-Then Product detail page is displayed with all product details..............failed
+Then Product detail page is displayed with all product details..............passed
+]]></system-out>
+</testcase>
+<testcase classname="Verify All Products and Product Detail Page functionality" name="User Searches for a Product" time="26.196">
+<system-out><![CDATA[
+Given User is on the home page..............................................passed
+When User clicks 'Products'.................................................passed
+Then ALL PRODUCTS page is displayed.........................................passed
+And Enters a product name in the search input and clicks the search button..passed
+Then The user verifies that SEARCHED PRODUCTS is visible....................passed
+And Confirms that the relevant products are displayed.......................passed
+]]></system-out>
+</testcase>
+<testcase classname="Add products to cart and verify details" name="User adds two products to the cart and verifies their details" time="32.164">
+<system-out><![CDATA[
+Given User is on the home page..............................................passed
+When User clicks 'Products'.................................................passed
+And User adds the first and second products to the cart.....................passed
+Then User views the cart....................................................passed
+And Verifies both products are added with correct details...................passed
+]]></system-out>
+</testcase>
+<testcase classname="Add products to cart and verify details" name="User verifies product quantity in the cart" time="23.215">
+<system-out><![CDATA[
+Given User is on the home page..............................................passed
+When User views a product...................................................passed
+And User verifies product details are opened................................passed
+And User increases quantity to 4............................................passed
+And User adds the product to the cart.......................................passed
+And User views the cart.....................................................passed
+Then User verifies the product is displayed with correct quantity...........passed
 ]]></system-out>
 </testcase>
 </testsuite>
